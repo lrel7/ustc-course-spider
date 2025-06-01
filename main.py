@@ -12,6 +12,8 @@ url_list=[]
 for page in range(1,11):
     repo=requests.get("https://api.github.com/search/repositories?q="+search+"&per_page=100&page="+str(page),headers=headers).json()
     print(repo.keys())
+    print(repo["message"])
+    print(repo['documentation_url'])
     if(len(repo['items'])==0):
         break
     for item in repo['items']:
